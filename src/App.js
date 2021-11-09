@@ -4,12 +4,14 @@ import Shop from "./Shop";
 import About from "./About";
 
 function App() {
+  
   return (
     <BrowserRouter>
       <div className="navBar">
-        <Link to="/">Home</Link>
-        <Link to="/shop">Shop</Link>
-        <Link to="/about">About</Link>
+        
+        <Link className="link" to="/">Home</Link>
+        <Link className="link" to="/shop">Shop</Link>
+        <Link className="link" to="/about">About</Link>
       </div>      
       <Switch>
         <Route path="/" exact component={Home} />
