@@ -10,9 +10,11 @@ function Cart(props) {
         the code below probably doesn't work, but the idea is there:
         we need to loop over the products in-cart and add the price of 
         all the item(s) to the cart total */}
-      {props.array.forEach(item => {
+      {/* {props.array.forEach(item => {
         setTotal(total + item.price*item.quantity);        
-      })}
+      })} */}
     </ul>
   );
 }
+
+export default Cart;
