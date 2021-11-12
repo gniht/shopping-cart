@@ -1,23 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import Shop from "./Shop";
 import About from "./About";
 import Cart from "./Cart";
 import { ShopContext } from './ShopContext';
-import {shopItems} from './shopItems';
+import { shopItems } from './shopItems';
+
 
 function App() {
-  
+
   const [ itemsInCart, setItemsInCart ] = useState([]);
-  
+  const [ cartTotal, setCartTotal ] = useState(0);
+
+    
+  useEffect(() => {
+
+  }, [itemsInCart]);
+   
   return (
     <BrowserRouter>
       <div className="navBar">        
         <Link className="link" to="/">Home</Link>
         <Link className="link" to="/shop">Shop</Link>
         <Link className="link" to="/about">About</Link>
-        <Link className="link" to="/cart">Cart</Link>
+        <Link className="link" to="/cart">Cart{` (${itemsInCart.length} items)`}</Link>
       </div>
       <ShopContext.Provider value={{ shopItems, itemsInCart, setItemsInCart }}>           
         <Switch>

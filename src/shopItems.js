@@ -1,4 +1,3 @@
-
 export const shopItems = [
   {
     name: 'fork',
@@ -16,4 +15,3 @@ export const shopItems = [
     image: ''
   }
 ];
-

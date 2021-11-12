@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ShopContext } from "./ShopContext";
 
 function Cart(props) {
+
+  const { shopItems, itemsInCart, setItemsInCart } = useContext(ShopContext);
 
   const [ total, setTotal ] = useState(0);
   
   return (
-    <ul>
-      {/* todo: list items in cart and update total.  
-        the code below probably doesn't work, but the idea is there:
-        we need to loop over the products in-cart and add the price of 
-        all the item(s) to the cart total */}
-      {/* {props.array.forEach(item => {
-        setTotal(total + item.price*item.quantity);        
-      })} */}
-    </ul>
+    <div className='cart'>
+      <h2>You have {`${itemsInCart.length}`} items in your cart.</h2>
+      <ul>
+        {itemsInCart.map(item => <li>{item.name}</li>)}        
+      </ul>
+    </div>
   );
 }
 
