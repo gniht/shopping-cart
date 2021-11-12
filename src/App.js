@@ -9,10 +9,10 @@ import { shopItems } from './shopItems';
 
 
 function App() {
+  //test change
 
   const [ itemsInCart, setItemsInCart ] = useState([]);
   const [ cartTotal, setCartTotal ] = useState(0);
-
     
   useEffect(() => {
 
