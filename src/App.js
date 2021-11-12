@@ -8,13 +8,18 @@ import { ShopContext } from './ShopContext';
 import { shopItems } from './shopItems';
 
 
-function App() {
-  //test change
+function App() {  
 
   const [ itemsInCart, setItemsInCart ] = useState([]);
   const [ cartTotal, setCartTotal ] = useState(0);
     
   useEffect(() => {
+    if(itemsInCart.length){
+      setCartTotal(itemsInCart.reduce((accumulator, currentValue => {
+        return accumulator + currentValue.subTotal;
+      })
+    } 
+
 
   }, [itemsInCart]);
    
