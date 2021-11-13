@@ -32,6 +32,22 @@ code {
   color:cornflowerblue;
 }
 
-li{
+li{ 
   list-style: none;
+}
+.item{
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 70vw;
+}
+.subtotal{
+  margin: 5px;
+  
+}
+.btn-controls{
+  margin: 3px;  
+  display: flex;
+  align-items: center;
 }
