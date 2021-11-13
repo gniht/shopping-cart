@@ -14,12 +14,14 @@ function App() {
   const [ cartTotal, setCartTotal ] = useState(0);
     
   useEffect(() => {
+    
     if(itemsInCart.length){
-      setCartTotal(itemsInCart.reduce((accumulator, currentValue => {
-        return accumulator + currentValue.subTotal;
-      })
-    } 
-
+      let sum = 0;      
+      itemsInCart.forEach(item => {
+        sum += item.subTotal;
+      });
+      setCartTotal(sum);      
+    }
 
   }, [itemsInCart]);
    

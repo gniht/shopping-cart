@@ -31,3 +31,7 @@ code {
 .link:hover{
   color:cornflowerblue;
 }
+
+li{
+  list-style: none;
+}
