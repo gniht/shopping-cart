@@ -18,7 +18,7 @@ function App() {
     shopItems.forEach(item => {           
       count += item.quantityPurchased;
     });
-    setNumberOfItemsInCart(count);
+    setNumberOfItemsInCart(count);    
   }, [shopItems]);
    
   return (
@@ -29,7 +29,7 @@ function App() {
         <Link className="link" to="/about">About</Link>
         <Link className="link" to="/cart">Cart{` (${numberOfItemsInCart} items)`}</Link>
       </div>
-      <ShopContext.Provider value={{ shopItems, setShopItems, numberOfItemsInCart }}>           
+      <ShopContext.Provider value={{ shopItems, setShopItems, numberOfItemsInCart, setNumberOfItemsInCart }}>           
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

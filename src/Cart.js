@@ -1,11 +1,23 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ShopContext } from "./ShopContext";
 import Item from "./Item";
 
 function Cart(props) {
 
-  const { shopItems, setShopItems, numberOfItemsInCart } = useContext(ShopContext);
-  const [ total, setTotal ] = useState(0);  
+  const { shopItems, setShopItems, numberOfItemsInCart, setNumberOfItemsInCart } = useContext(ShopContext);
+  const [ total, setTotal ] = useState(0);
+  
+  useEffect(()=>{
+    let cost = 0;
+    shopItems.forEach(item => {
+      cost += item.price*item.quantityPurchased;      
+    });
+    setTotal(cost.toLocaleString('en-US', {style: 'currency', currency: 'USD' }));
+  },[shopItems]);
+
+  function checkoutHandler() {
+    
+  }
   
   return (
     <div className='cart'>
@@ -26,7 +38,7 @@ function Cart(props) {
         })}        
       </ul>
       <h2 className="cartTotal">Total: {`${total}`}</h2>
-      
+      {numberOfItemsInCart > 0 && <button className="btb" onClick={() => checkoutHandler()}>Buy Now</button>}
     </div>
   );
 }
