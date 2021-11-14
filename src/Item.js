@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ShopContext } from "./ShopContext";
 
-function Item({ key, name, description, price, }) {
+function Item({ name, description, price, }) {
 
   const { shopItems, setShopItems } = useContext(ShopContext);
 
@@ -13,15 +13,26 @@ function Item({ key, name, description, price, }) {
       setInCart(false);
       setQuantity(0);
     }else{
-      setInCart(true);
-      
+      setInCart(true);      
       setQuantity(1);
     }
   }
 
   function quantityChangeHandler(e){
-    setQuantity(e.target.value)    
+    setQuantity(parseInt(e.target.value))    
   }
+
+  useEffect(()=> {       
+    const updatedItems = [...shopItems];
+    updatedItems.forEach(element => {
+      if(element.name == name){        
+        element.quantity = quantity;
+        element.inCart = inCart;        
+      }
+    });
+    setShopItems(updatedItems);
+  },[quantity]);
+  
   
   return (
     <li>

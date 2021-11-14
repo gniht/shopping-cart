@@ -12,7 +12,7 @@ function App() {
 
   const [ shopItems, setShopItems] = useState(shopInventory);
   const [ itemsInCart, setItemsInCart ] = useState(0);
-  
+
     
   useEffect(() => {    
     let count = 0;

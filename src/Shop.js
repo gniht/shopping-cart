@@ -12,9 +12,8 @@ import { ShopContext } from "./ShopContext";
         <h1>Time to shop!</h1>
         <ul>
           {
-          shopItems.map(item => {
-            console.log(item)            
-            return <Item 
+          shopItems.map(item => {                       
+            return (<Item 
               key={item.name} 
               name={item.name}
               description={item.description}
@@ -22,7 +21,7 @@ import { ShopContext } from "./ShopContext";
               price={item.price}
               inCart={item.inCart}
               quantity={item.quantity}
-            />;            
+            />);            
           })
           }
         </ul>
