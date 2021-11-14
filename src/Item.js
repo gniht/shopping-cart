@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ShopContext } from "./ShopContext";
 
-function Item({ key, name, description, price}) {
+function Item({ key, name, description, price, }) {
 
-  const { shopItems, itemsInCart, setItemsInCart } = useContext(ShopContext);
+  const { shopItems, setShopItems } = useContext(ShopContext);
 
   const [inCart, setInCart] = useState(false);
   const [quantity, setQuantity] = useState(0);
@@ -14,9 +14,11 @@ function Item({ key, name, description, price}) {
       setQuantity(0);
     }else{
       setInCart(true);
+      
       setQuantity(1);
     }
   }
+
   function quantityChangeHandler(e){
     setQuantity(e.target.value)    
   }
@@ -36,7 +38,6 @@ function Item({ key, name, description, price}) {
           { inCart && <h6 className="subtotal">Subtotal: {`${(price*quantity)
             .toLocaleString('en-US', {style: 'currency', currency: 'USD' })}`}</h6> } 
         </div>
-
       </div>    
     </li>
   );

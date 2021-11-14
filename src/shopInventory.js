@@ -1,21 +1,27 @@
-export const shopItems = [
+export const shopInventory = [
   {
     name: 'fork',
     description: 'a utensil for eating',
     image: '',
-    price: 2.99
+    price: 2.99,
+    inCart: false,
+    quantity: 0
   },
   {
     name: 'spoon',
     description: 'a utensil for eating liquidy foods',
     image: '',
-    price: 2.49
+    price: 2.49,
+    inCart: false,
+    quantity: 0
 
   },
   {
     name: 'butter knife',
     description: 'a utensil for spreading jam, butter, and the like on bread',
     image: '',
-    price: 1.99
+    price: 1.99,
+    inCart: false,
+    quantity: 0
   }
 ];

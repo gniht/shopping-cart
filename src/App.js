@@ -5,25 +5,22 @@ import Shop from "./Shop";
 import About from "./About";
 import Cart from "./Cart";
 import { ShopContext } from './ShopContext';
-import { shopItems } from './shopItems';
+import { shopInventory } from './shopInventory';
 
 
 function App() {  
 
-  const [ itemsInCart, setItemsInCart ] = useState([]);
-  const [ cartTotal, setCartTotal ] = useState(0);
+  const [ shopItems, setShopItems] = useState(shopInventory);
+  const [ itemsInCart, setItemsInCart ] = useState(0);
+  
     
-  useEffect(() => {
-    
-    if(itemsInCart.length){
-      let sum = 0;      
-      itemsInCart.forEach(item => {
-        sum += item.subTotal;
-      });
-      setCartTotal(sum);      
-    }
-
-  }, [itemsInCart]);
+  useEffect(() => {    
+    let count = 0;
+    shopItems.forEach(item => {           
+      count += item.quantity;
+    });
+    setItemsInCart(count);
+  }, [shopItems]);
    
   return (
     <BrowserRouter>
@@ -31,9 +28,9 @@ function App() {
         <Link className="link" to="/">Home</Link>
         <Link className="link" to="/shop">Shop</Link>
         <Link className="link" to="/about">About</Link>
-        <Link className="link" to="/cart">Cart{` (${itemsInCart.length} items)`}</Link>
+        <Link className="link" to="/cart">Cart{` (${itemsInCart} items)`}</Link>
       </div>
-      <ShopContext.Provider value={{ shopItems, itemsInCart, setItemsInCart }}>           
+      <ShopContext.Provider value={{ shopItems, setShopItems }}>           
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

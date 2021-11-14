@@ -4,9 +4,8 @@ import { ShopContext } from "./ShopContext";
 
 
   function Shop(props) {
-    {/* it may be better to track state of cart and cart items with context API */ }
-     
-    const {shopItems, itemsInCart, setItemsInCart} = useContext(ShopContext);
+         
+    const {shopItems, setShopItems} = useContext(ShopContext);
 
     return (
       <div>
@@ -21,6 +20,8 @@ import { ShopContext } from "./ShopContext";
               description={item.description}
               image={item.image}
               price={item.price}
+              inCart={item.inCart}
+              quantity={item.quantity}
             />;            
           })
           }
