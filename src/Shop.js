@@ -5,7 +5,7 @@ import { ShopContext } from "./ShopContext";
 
   function Shop(props) {
          
-    const {shopItems, setShopItems} = useContext(ShopContext);
+    const { shopItems } = useContext(ShopContext);
 
     return (
       <div>
@@ -13,14 +13,13 @@ import { ShopContext } from "./ShopContext";
         <ul>
           {
           shopItems.map(item => {                       
-            return (<Item 
-              key={item.name} 
+            return (<Item                
               name={item.name}
               description={item.description}
               image={item.image}
               price={item.price}
               inCart={item.inCart}
-              quantity={item.quantity}
+              quantityPurchased={item.quantityPurchased}
             />);            
           })
           }

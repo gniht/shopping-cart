@@ -11,15 +11,14 @@ import { shopInventory } from './shopInventory';
 function App() {  
 
   const [ shopItems, setShopItems] = useState(shopInventory);
-  const [ itemsInCart, setItemsInCart ] = useState(0);
+  const [ numberOfItemsInCart, setNumberOfItemsInCart ] = useState(0);
 
-    
-  useEffect(() => {    
+    useEffect(() => {    
     let count = 0;
     shopItems.forEach(item => {           
-      count += item.quantity;
+      count += item.quantityPurchased;
     });
-    setItemsInCart(count);
+    setNumberOfItemsInCart(count);
   }, [shopItems]);
    
   return (
@@ -28,9 +27,9 @@ function App() {
         <Link className="link" to="/">Home</Link>
         <Link className="link" to="/shop">Shop</Link>
         <Link className="link" to="/about">About</Link>
-        <Link className="link" to="/cart">Cart{` (${itemsInCart} items)`}</Link>
+        <Link className="link" to="/cart">Cart{` (${numberOfItemsInCart} items)`}</Link>
       </div>
-      <ShopContext.Provider value={{ shopItems, setShopItems }}>           
+      <ShopContext.Provider value={{ shopItems, setShopItems, numberOfItemsInCart }}>           
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

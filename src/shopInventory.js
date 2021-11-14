@@ -5,7 +5,7 @@ export const shopInventory = [
     image: '',
     price: 2.99,
     inCart: false,
-    quantity: 0
+    quantityPurchased: 0
   },
   {
     name: 'spoon',
@@ -13,7 +13,7 @@ export const shopInventory = [
     image: '',
     price: 2.49,
     inCart: false,
-    quantity: 0
+    quantityPurchased: 0
 
   },
   {
@@ -22,6 +22,6 @@ export const shopInventory = [
     image: '',
     price: 1.99,
     inCart: false,
-    quantity: 0
+    quantityPurchased: 0
   }
 ];

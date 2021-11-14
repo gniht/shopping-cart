@@ -1,19 +1,19 @@
 import React, { useState, useContext, useEffect } from "react";
 import { ShopContext } from "./ShopContext";
 
-function Item({ name, description, price, }) {
+function Item({ name, description, price, inCart, quantityPurchased }) {
 
   const { shopItems, setShopItems } = useContext(ShopContext);
 
-  const [inCart, setInCart] = useState(false);
-  const [quantity, setQuantity] = useState(0);
+  const [isInCart, setIsInCart] = useState(inCart);
+  const [quantity, setQuantity] = useState(quantityPurchased);
 
   function addOrRemoveHandler(){
-    if(inCart){
-      setInCart(false);
+    if(isInCart){
+      setIsInCart(false);
       setQuantity(0);
     }else{
-      setInCart(true);      
+      setIsInCart(true);      
       setQuantity(1);
     }
   }
@@ -26,8 +26,8 @@ function Item({ name, description, price, }) {
     const updatedItems = [...shopItems];
     updatedItems.forEach(element => {
       if(element.name == name){        
-        element.quantity = quantity;
-        element.inCart = inCart;        
+        element.quantityPurchased = quantity;
+        element.inCart = isInCart;        
       }
     });
     setShopItems(updatedItems);
