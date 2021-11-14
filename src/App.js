@@ -29,7 +29,7 @@ function App() {
         <Link className="link" to="/about">About</Link>
         <Link className="link" to="/cart">Cart{` (${numberOfItemsInCart} items)`}</Link>
       </div>
-      <ShopContext.Provider value={{ shopItems, setShopItems, numberOfItemsInCart, setNumberOfItemsInCart }}>           
+      <ShopContext.Provider value={{ shopItems, setShopItems, numberOfItemsInCart }}>           
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />
